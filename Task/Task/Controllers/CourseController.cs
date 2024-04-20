@@ -93,8 +93,6 @@ namespace Task.EFc.Controllers
                 return NotFound();
             }
 
-            _context.Courses.Remove(course);
-
             await _context.Database.ExecuteSqlInterpolatedAsync($"CALL delete_course({id})");
 
             await _context.SaveChangesAsync();
